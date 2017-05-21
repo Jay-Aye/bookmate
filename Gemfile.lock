@@ -43,12 +43,17 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     afm (0.2.2)
     arel (8.0.0)
+    autoprefixer-rails (7.1.1)
+      execjs
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
     bindex (0.5.0)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
     cane (3.0.0)
@@ -237,6 +242,7 @@ DEPENDENCIES
   Ascii85
   afm
   better_errors
+  bootstrap-sass
   byebug
   cane
   capybara (~> 2.13)

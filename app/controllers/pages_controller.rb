@@ -10,26 +10,31 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @pages = Page.all
+    @user = current_user
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
+    @user = current_user
   end
 
   # GET /pages/new
   def new
     @page = Page.new
+    @user = current_user
   end
 
   # GET /pages/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /pages
   # POST /pages.json
   def create
     @page = Page.create
+    @user = current_user
 
 
 
@@ -49,6 +54,7 @@ class PagesController < ApplicationController
   # PATCH/PUT /pages/1
   # PATCH/PUT /pages/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @page.update(page_params)
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
@@ -63,6 +69,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
+    @user = current_user
     @page.destroy
     respond_to do |format|
       format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }

@@ -10,28 +10,33 @@ class AudiobooksController < ApplicationController
   # GET /audiobooks.json
   def index
     @audiobooks = Audiobook.all
+    @user = current_user
 
   end
 
   # GET /audiobooks/1
   # GET /audiobooks/1.json
   def show
+    @user = current_user
 
   end
 
   # GET /audiobooks/new
   def new
     @audiobook = Audiobook.new
+    @user = current_user
 
   end
 
   # GET /audiobooks/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /audiobooks
   # POST /audiobooks.json
   def create
+    @user = current_user
     @audiobook = Audiobook.new(params.require(:audiobook).permit(:title, :author, :pdf))
     @page_number = 1
 
@@ -76,6 +81,7 @@ class AudiobooksController < ApplicationController
   # PATCH/PUT /audiobooks/1
   # PATCH/PUT /audiobooks/1.json
   def update
+    @user = current_user
     respond_to do |format|
       if @audiobook.update(audiobook_params)
         format.html { redirect_to @audiobook, notice: 'Audiobook was successfully updated.' }
@@ -90,6 +96,7 @@ class AudiobooksController < ApplicationController
   # DELETE /audiobooks/1
   # DELETE /audiobooks/1.json
   def destroy
+    @user = current_user
     @audiobook.destroy
     respond_to do |format|
       format.html { redirect_to audiobooks_url, notice: 'Audiobook was successfully destroyed.' }

@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'bootstrap-sass'
+
 gem 'paperclip'
 
 gem 'tts'
