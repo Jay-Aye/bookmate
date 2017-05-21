@@ -12,11 +12,28 @@
 
 ActiveRecord::Schema.define(version: 20170521080204) do
 
-# Could not dump table "audiobooks" because of following StandardError
-#   Unknown type 'reference' for column 'audiobook_id'
+  create_table "audiobooks", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "pdf"
+    t.integer "audiobook_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "pdf_file_name"
+    t.string "pdf_content_type"
+    t.integer "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.index ["audiobook_id_id"], name: "index_audiobooks_on_audiobook_id_id"
+  end
 
-# Could not dump table "pages" because of following StandardError
-#   Unknown type 'reference' for column 'audiobook_id'
+  create_table "pages", force: :cascade do |t|
+    t.integer "page_no"
+    t.text "text"
+    t.integer "audiobook_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["audiobook_id_id"], name: "index_pages_on_audiobook_id_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
